@@ -1,7 +1,7 @@
 Feature: Create repository from REST request and delete
 @inWork
   Scenario: Create repository from REST request
-  * User creates repository with name "createAndSee1" and saves response to var "responseAfterCreating"
+  * User creates repository with name "createAndSee132" and saves response to var "responseAfterCreating"
   * User gets response "responseAfterCreating" and checks status code ER "201"
   * User gets value from JsonPath "name" from response "responseAfterCreating" and saves to var "nameOfRepos"
   * User checks all params in response "responseAfterCreating"
