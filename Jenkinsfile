@@ -8,7 +8,7 @@ pipeline{
 		}
 		stage('Run Test'){
 			steps{
-				bat 'mvn test -DBROWSER=firefox'
+				bat 'mvn test -DBROWSER=firefox -Dcucumber.options="--tags @helloWorld1"'
 			}
 		}
 	}
