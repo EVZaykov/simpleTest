@@ -1,4 +1,4 @@
 Feature: Login User
-  @helloWorld
+@helloWorld
   Scenario: Login user
     *  User opens browser "https://www.youtube.com/"

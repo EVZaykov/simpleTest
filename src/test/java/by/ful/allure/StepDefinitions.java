@@ -1,4 +1,4 @@
-package by.peshkur.allure;
+package by.ful.allure;
 
 public class StepDefinitions {
 
