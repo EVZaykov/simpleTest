@@ -23,8 +23,11 @@ public class Hooks {
 
     @Given("User opens browser {string}")
     public void user_opens_browser(String string) {
+        Allure.step("User opens browser :" + string);
+
         signInPage = new SignInPage(driver);
         signInPage.goTo(string);
+
     }
 
 
@@ -50,6 +53,7 @@ public class Hooks {
 
             String completeUrl = "http://" + host + ":4444/wd/hub";
             //open(completeUrl,dc);
+            Allure.step(System.getProperty("BROWSER"));
             this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
 
             //System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
