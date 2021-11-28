@@ -1,6 +1,5 @@
-package by.ful.allure.steps;
+package Steps;
 
-import by.ful.allure.pages.SignInPage;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -16,9 +15,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.io.ByteArrayInputStream;
 import java.net.URL;
 import java.net.MalformedURLException;
-
-import static com.codeborne.selenide.Selenide.open;
-
 
 public class Hooks {
 

@@ -1,4 +1,4 @@
-package by.ful.allure.pages;
+package Steps;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
