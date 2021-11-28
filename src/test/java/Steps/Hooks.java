@@ -42,7 +42,7 @@ public class Hooks {
     @Before
     public void openUrl() throws MalformedURLException {
         //open("https://grinfer.com/");
-            String host = "localhost";
+          /*  String host = "localhost";
             DesiredCapabilities dc;
 
             if(System.getProperty("BROWSER") != null &&
@@ -62,7 +62,7 @@ public class Hooks {
             String completeUrl = "http://" + host + ":4444/wd/hub";
             //open(completeUrl,dc);
             Allure.step(System.getProperty("BROWSER"));
-            this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+            this.driver = new RemoteWebDriver(new URL(completeUrl), dc); */
 
             //System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
             //this.driver = new ChromeDriver();
