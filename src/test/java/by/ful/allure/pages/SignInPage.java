@@ -24,7 +24,7 @@ public class SignInPage{
     public SignInPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
-        this.wait = new WebDriverWait(driver,3);
+        this.wait = new WebDriverWait(driver,10);
     }
 
     public void goTo(String URL){
