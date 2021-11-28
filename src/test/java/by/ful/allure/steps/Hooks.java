@@ -28,9 +28,7 @@ public class Hooks {
     @Given("User opens browser {string}")
     public void user_opens_browser(String string) {
         signInPage = new SignInPage(driver);
-        System.out.println("Я хочу" +  "https://github.com/");
-        signInPage.goTo("https://github.com/");
-        System.out.println("Я открыл" +  "https://github.com/");
+        signInPage.goTo(string);
     }
 
 
