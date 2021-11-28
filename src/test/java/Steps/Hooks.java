@@ -5,6 +5,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -21,12 +22,19 @@ public class Hooks {
     private SignInPage signInPage;
     private WebDriver driver;
 
+    @Step
     @Given("User opens browser {string}")
     public void user_opens_browser(String string) {
-        Allure.step("User opens browser :" + string);
-
         signInPage = new SignInPage(driver);
         signInPage.goTo(string);
+
+    }
+
+    @Step
+    @Given("User enter credential {string} {string}")
+    public void user_enter_credential(String login, String password){
+
+        signInPage.enterUserCredentials(login,password);
 
     }
 
