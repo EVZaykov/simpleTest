@@ -5,6 +5,8 @@ import impl.RepositoryServiceImpl;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.qameta.allure.Allure;
+import io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm;
 import io.restassured.response.ValidatableResponse;
 import models.Repository;
 import org.junit.Assert;
@@ -29,6 +31,8 @@ public class RepositoryMyStepdefs extends APIBaseSteps {
     @Given("User creates repository with name {string} and saves response to var {string}")
     public void create_repository_and_save_response_to_var(String url, String varName) {
         ValidatableResponse response = repositoryService.createRepository(url);
+        Allure.step(response.toString());
+        Allure.step(response.extract().statusLine());
         RUN_CONTEXT.put(varName,response);
 
         //ValidatableResponse createRepository = repositoryService.createRepository(url,varName);
