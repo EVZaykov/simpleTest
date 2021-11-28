@@ -8,7 +8,7 @@ pipeline{
 		}
 		stage('Run Test'){
 			steps{
-				bat 'mvn test'
+				bat 'mvn test -DBROWSER=firefox'
 			}
 		}
 	}
