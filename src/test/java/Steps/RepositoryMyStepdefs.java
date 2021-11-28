@@ -6,7 +6,6 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
-import io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm;
 import io.restassured.response.ValidatableResponse;
 import models.Repository;
 import org.junit.Assert;
