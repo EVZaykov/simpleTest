@@ -22,7 +22,7 @@ public class APIBaseSteps {
             body = "{}";
         }
         log.info("body: " + body);
-        ValidatableResponse response = given().log().all().body(body).header("Authorization","Bearer " + testConfig.getToken()).contentType("application/json;charset=UTF-8").post(myPath).then().log().all();
+        ValidatableResponse response = given().log().all().body(body).header("Authorization","Bearer " + System.getenv("SECRET_TOKEN")).contentType("application/json;charset=UTF-8").post(myPath).then().log().all();
         log.info(String.format("URL for request : \"%s\"", myPath));
         //log.info(response.asString());
          //Allure.step("response:\n" + response.asString());
