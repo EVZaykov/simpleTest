@@ -8,6 +8,7 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
+import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -73,10 +74,12 @@ public class Hooks {
 
     @After
     public void closeDriver(Scenario scenario) {
-        if(scenario.isFailed()) {
+        System.out.println("-------------------------------- " + driver.getTitle());
+        if(scenario.isFailed() && driver.getTitle() == null) {
             Allure.addAttachment("Screenshot of falling step", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+            return;
         }
         this.driver.quit();
     }
-    }
+}
 
