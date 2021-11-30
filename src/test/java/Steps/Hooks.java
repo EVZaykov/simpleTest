@@ -6,6 +6,8 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
+import io.restassured.RestAssured;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -41,6 +43,7 @@ public class Hooks {
 
     @Before
     public void openUrl() throws MalformedURLException {
+        RestAssured.filters(new AllureRestAssured());
         //open("https://grinfer.com/");
           /*  String host = "localhost";
             DesiredCapabilities dc;
