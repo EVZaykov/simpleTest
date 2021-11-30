@@ -1,5 +1,8 @@
 pipeline{
 	agent any
+    environment {
+        SECRET_TOKEN = credentials('secret-token')
+    }
 	stages {
 		stage('Start Grid'){
 			steps {
