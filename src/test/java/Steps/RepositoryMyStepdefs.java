@@ -7,6 +7,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
+import io.qameta.allure.assertj.AllureAspectJ;
 import io.qameta.allure.internal.AllureStorage;
 import io.restassured.response.ValidatableResponse;
 import models.Repository;
@@ -43,6 +44,8 @@ public class RepositoryMyStepdefs extends APIBaseSteps {
 
         int actualStatus = validatableResponse.extract().statusCode();
         int expectStatus = Integer.parseInt(status);
+        Allure.step("ER" + expectStatus);
+        Allure.step("AR" + actualStatus);
         Assert.assertEquals(expectStatus,actualStatus);
     }
 
