@@ -1,6 +1,6 @@
 Feature: Create repository from REST request and delete
 @inWork
-  Scenario: name of repository with bad symbol
+  Scenario: name of repository with normal name
   * User creates repository with name "createAndSee132" and saves response to var "responseAfterCreating"
   * User gets response "responseAfterCreating" and checks status code ER "201"
   * User gets value from JsonPath "name" from response "responseAfterCreating" and saves to var "nameOfRepos"
