@@ -1,11 +1,13 @@
 package Steps;
 
 
+import com.codeborne.selenide.junit.SoftAsserts;
 import impl.RepositoryServiceImpl;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
+import io.qameta.allure.internal.AllureStorage;
 import io.restassured.response.ValidatableResponse;
 import models.Repository;
 import org.junit.Assert;
@@ -30,15 +32,15 @@ public class RepositoryMyStepdefs extends APIBaseSteps {
     @Given("User creates repository with name {string} and saves response to var {string}")
     public void create_repository_and_save_response_to_var(String url, String varName) {
         ValidatableResponse response = repositoryService.createRepository(url);
-        System.out.println(System.getenv("SECRET_TOKEN"));
         RUN_CONTEXT.put(varName,response);
 
-        //ValidatableResponse createRepository = repositoryService.createRepository(url,varName);
     }
 
     @Then("User gets response {string} and checks status code ER {string}")
     public void get_response_and_validating_status_code(String varName, String status) {
         ValidatableResponse validatableResponse = RUN_CONTEXT.get(varName,ValidatableResponse.class);
+
+
         int actualStatus = validatableResponse.extract().statusCode();
         int expectStatus = Integer.parseInt(status);
         Assert.assertEquals(expectStatus,actualStatus);
