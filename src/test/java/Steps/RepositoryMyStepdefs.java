@@ -1,14 +1,12 @@
 package Steps;
 
 
-import com.codeborne.selenide.junit.SoftAsserts;
+
 import impl.RepositoryServiceImpl;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
-import io.qameta.allure.assertj.AllureAspectJ;
-import io.qameta.allure.internal.AllureStorage;
 import io.restassured.response.ValidatableResponse;
 import models.Repository;
 import org.junit.Assert;
@@ -17,6 +15,7 @@ import service.RepositoryService;
 import java.util.List;
 
 import static context.RunContext.RUN_CONTEXT;
+import static helpers.AssertionsWithMessage.assertWithMessage;
 import static helpers.CheckVariable.check_variable_in_string;
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -44,10 +43,14 @@ public class RepositoryMyStepdefs extends APIBaseSteps {
 
         int actualStatus = validatableResponse.extract().statusCode();
         int expectStatus = Integer.parseInt(status);
-        Allure.step("ER" + expectStatus);
-        Allure.step("AR" + actualStatus);
-        Assert.assertEquals(expectStatus,actualStatus);
+        //Allure.step("ER" + expectStatus);
+        //Allure.step("AR" + actualStatus);
+        //Assert.assertEquals(expectStatus,actualStatus);
+        assertWithMessage(expectStatus,actualStatus);
+
     }
+
+
 
     @Given("User deletes repository with name {string} and saves response to var {string}")
     public void delete_repository_with_name(String nameOfRepos,String varName) {
@@ -65,6 +68,7 @@ public class RepositoryMyStepdefs extends APIBaseSteps {
         ValidatableResponse response = RUN_CONTEXT.get(varName,ValidatableResponse.class);
         for (int i = 0 ; i < dataTable.height() ; i++) {
             response.assertThat().body(dataTable.row(i).get(0),equalTo(check_variable_in_string(dataTable.row(i).get(1))));
+            assertWithMessage(dataTable.row(i).get(0),check_variable_in_string(dataTable.row(i).get(1)));
         }
     }
 

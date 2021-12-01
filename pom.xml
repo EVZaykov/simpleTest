@@ -59,14 +59,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-assertj -->
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-assertj</artifactId>
-            <version>2.16.1</version>
-        </dependency>
-
-
         <!-- ### REST ### -->
 
         <dependency>
@@ -100,7 +92,6 @@
             <artifactId>allure-rest-assured</artifactId>
             <version>2.13.8</version>
         </dependency>
-
 
     </dependencies>
 
