@@ -7,6 +7,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 import models.Repository;
 import org.junit.Assert;
@@ -66,9 +67,14 @@ public class RepositoryMyStepdefs extends APIBaseSteps {
     @Given("User checks all params in response {string}")
     public void user_checks_all_params_in_response(String varName, DataTable dataTable) {
         ValidatableResponse response = RUN_CONTEXT.get(varName,ValidatableResponse.class);
+        JsonPath JSString = rawToJson(response);
         for (int i = 0 ; i < dataTable.height() ; i++) {
-            response.assertThat().body(dataTable.row(i).get(0),equalTo(check_variable_in_string(dataTable.row(i).get(1))));
-            System.out.println(dataTable.row(i).get(0));
+            //response.assertThat().body(JSString.get(dataTable.row(i).get(0)),equalTo(check_variable_in_string(dataTable.row(i).get(1))));
+            assertWithMessage(JSString.get(dataTable.row(i).get(0)),equalTo(check_variable_in_string(dataTable.row(i).get(1))))
+            ;
+
+
+            System.out.println(response.extract().body().jsonPath());
             System.out.println(check_variable_in_string(dataTable.row(i).get(1)));
             assertWithMessage(dataTable.row(i).get(0),check_variable_in_string(dataTable.row(i).get(1)));
         }

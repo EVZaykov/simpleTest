@@ -37,8 +37,8 @@ public class APIBaseSteps {
         return response;
     }
 
-    public JsonPath rawToJson(Response response) {
-        String responseString = response.asString();
+    public JsonPath rawToJson(ValidatableResponse response) {
+        String responseString = response.toString();
         return new JsonPath(responseString);
     }
 
