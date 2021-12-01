@@ -1,12 +1,11 @@
 pipeline {
-    agent any
-    environment {
-        SECRET_TOKEN = credentials('secret-token')
+    agent {
+        docker { image 'node:14-alpine' }
     }
     stages {
-        stage('stage 1') {
+        stage('Test') {
             steps {
-                sh 'env | sort'
+                sh 'node --version'
             }
         }
     }
