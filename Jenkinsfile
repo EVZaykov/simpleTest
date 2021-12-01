@@ -6,12 +6,12 @@ pipeline{
 	stages {
 		stage('Start Grid'){
 			steps {
-				sh 'docker-compose up -d hub chrome firefox'
+				bat 'docker-compose up -d hub chrome firefox'
 			}
 		}
 		stage('Run Test'){
 			steps{
-				sh 'mvn clean test -DBROWSER=firefox -Dcucumber.options="--tags @inWork"'
+				bat 'mvn clean test -DBROWSER=firefox -Dcucumber.options="--tags @inWork"'
 			}
 		}
 	}
@@ -26,7 +26,7 @@ pipeline{
                 results: [[path: 'target/allure-results']]
               ])
             }
-			sh 'docker-compose down'
+			bat 'docker-compose down'
 		}
 	}
 }
