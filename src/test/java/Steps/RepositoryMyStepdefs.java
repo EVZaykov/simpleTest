@@ -68,6 +68,8 @@ public class RepositoryMyStepdefs extends APIBaseSteps {
         ValidatableResponse response = RUN_CONTEXT.get(varName,ValidatableResponse.class);
         for (int i = 0 ; i < dataTable.height() ; i++) {
             response.assertThat().body(dataTable.row(i).get(0),equalTo(check_variable_in_string(dataTable.row(i).get(1))));
+            System.out.println(dataTable.row(i).get(0));
+            System.out.println(check_variable_in_string(dataTable.row(i).get(1)));
             assertWithMessage(dataTable.row(i).get(0),check_variable_in_string(dataTable.row(i).get(1)));
         }
     }
