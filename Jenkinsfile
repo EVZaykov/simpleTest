@@ -1,5 +1,5 @@
 pipeline{
-	agent { docker-compose.yaml true }
+	agent { dockerfile true }
     environment {
         SECRET_TOKEN = credentials('secret-token')
     }
