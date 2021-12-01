@@ -1,5 +1,5 @@
 pipeline{
-	agent { dockerfile true }
+	agent any
     environment {
         SECRET_TOKEN = credentials('secret-token')
     }
