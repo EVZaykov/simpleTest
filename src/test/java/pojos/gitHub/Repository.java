@@ -1,9 +1,11 @@
 
-package models;
+package pojos.gitHub;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import pojos.gitHub.Owner;
+import pojos.gitHub.Permissions;
 
 import java.util.List;
 

@@ -1,7 +1,8 @@
-package Steps;
+package Steps.APISteps;
 
 
 import config.TestConfig;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
@@ -17,12 +18,12 @@ public class APIBaseSteps {
 
     TestConfig testConfig = new TestConfig();
 
-    public ValidatableResponse postRequest(String body, String myPath) {
+    public Response postRequest(String body, String myPath) {
         if(body == null || body.isEmpty()) {
             body = "{}";
         }
         log.info("body: " + body);
-        ValidatableResponse response = given().log().all().body(body).header("Authorization","Bearer " + System.getenv("SECRET_TOKEN")).contentType("application/json;charset=UTF-8").post(myPath).then().log().all();
+        Response response = given().filter(new AllureRestAssured()).body(body).header("Authorization","Bearer " + System.getenv("SECRET_TOKEN")).contentType("application/json;charset=UTF-8").post(myPath);
         log.info(String.format("URL for request : \"%s\"", myPath));
         //log.info(response.asString());
          //Allure.step("response:\n" + response.asString());

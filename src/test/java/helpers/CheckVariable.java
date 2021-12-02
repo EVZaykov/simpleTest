@@ -1,6 +1,6 @@
 package helpers;
 
-import static context.RunContext.RUN_CONTEXT;
+import static helpers.RunContext.RUN_CONTEXT;
 
 public class CheckVariable {
 

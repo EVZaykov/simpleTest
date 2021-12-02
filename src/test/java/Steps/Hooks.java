@@ -1,35 +1,29 @@
 package Steps;
 
+import Steps.UISteps.Fofo;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
-import io.qameta.allure.restassured.AllureRestAssured;
-import io.restassured.RestAssured;
-import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.ByteArrayInputStream;
-import java.net.URL;
 import java.net.MalformedURLException;
 
 public class Hooks {
 
-    private SignInPage signInPage;
+    private Fofo fofo;
     private WebDriver driver;
 
     @Step
     @Given("User opens browser {string}")
     public void user_opens_browser(String string) {
-        signInPage = new SignInPage(driver);
-        signInPage.goTo(string);
+        fofo = new Fofo(driver);
+        fofo.goTo(string);
 
     }
 
@@ -37,14 +31,14 @@ public class Hooks {
     @Given("User enter credential {string} {string}")
     public void user_enter_credential(String login, String password){
 
-        signInPage.enterUserCredentials(login,password);
+        fofo.enterUserCredentials(login,password);
 
     }
 
 
     @Before
     public void openUrl() throws MalformedURLException {
-        RestAssured.filters(new AllureRestAssured());
+        //RestAssured.filters(new AllureRestAssured());
         //open("https://grinfer.com/");
           /*  String host = "localhost";
             DesiredCapabilities dc;

@@ -1,28 +1,24 @@
-package Steps;
+package Steps.APISteps.gitHubAPISteps;
 
-
-
+import Steps.APISteps.APIBaseSteps;
 import impl.RepositoryServiceImpl;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.qameta.allure.Allure;
 import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
-import models.Repository;
-import org.junit.Assert;
-import service.RepositoryService;
-
+import pojos.gitHub.Repository;
 import java.util.List;
 
-import static context.RunContext.RUN_CONTEXT;
+import static helpers.RunContext.RUN_CONTEXT;
 import static helpers.AssertionsWithMessage.assertWithMessage;
 import static helpers.CheckVariable.check_variable_in_string;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class RepositoryMyStepdefs extends APIBaseSteps {
 
-    RepositoryService repositoryService = new RepositoryServiceImpl();
+    RepositoryServiceImpl repositoryService = new RepositoryServiceImpl();
 
 
     @Given("User gets list of repositories {string} and saves response to var {string}")
@@ -32,7 +28,7 @@ public class RepositoryMyStepdefs extends APIBaseSteps {
 
     @Given("User creates repository with name {string} and saves response to var {string}")
     public void create_repository_and_save_response_to_var(String url, String varName) {
-        ValidatableResponse response = repositoryService.createRepository(url);
+        Response response = repositoryService.createRepository(url);
         RUN_CONTEXT.put(varName,response);
 
     }
@@ -40,13 +36,8 @@ public class RepositoryMyStepdefs extends APIBaseSteps {
     @Then("User gets response {string} and checks status code ER {string}")
     public void get_response_and_validating_status_code(String varName, String status) {
         ValidatableResponse validatableResponse = RUN_CONTEXT.get(varName,ValidatableResponse.class);
-
-
         int actualStatus = validatableResponse.extract().statusCode();
         int expectStatus = Integer.parseInt(status);
-        //Allure.step("ER" + expectStatus);
-        //Allure.step("AR" + actualStatus);
-        //Assert.assertEquals(expectStatus,actualStatus);
         assertWithMessage(expectStatus,actualStatus);
 
     }

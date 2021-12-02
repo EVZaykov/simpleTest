@@ -1,5 +1,5 @@
 
-package models;
+package pojos.gitHub;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

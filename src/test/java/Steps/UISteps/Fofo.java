@@ -1,4 +1,4 @@
-package Steps;
+package Steps.UISteps;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SignInPage{
+public class Fofo {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -21,7 +21,7 @@ public class SignInPage{
     @FindBy(xpath = "//input[@name='commit']")
     private WebElement signInButton;
 
-    public SignInPage(WebDriver driver) {
+    public Fofo(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
         this.wait = new WebDriverWait(driver,10);
