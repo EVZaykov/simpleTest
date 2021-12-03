@@ -10,9 +10,12 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.ByteArrayInputStream;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class Hooks {
 
@@ -37,7 +40,14 @@ public class Hooks {
 
 
     @Before
-    public void openUrl() throws MalformedURLException {
+    public void setUp(Scenario scenario) throws MalformedURLException {
+
+        if(scenario.getSourceTagNames().contains("@api")) {
+            return;
+        }
+
+        //System.out.println(scenario.getSourceTagNames());
+        //scenario.getSourceTagNames();
         //RestAssured.filters(new AllureRestAssured());
         //open("https://grinfer.com/");
           /*  String host = "localhost";
@@ -62,18 +72,20 @@ public class Hooks {
             Allure.step(System.getProperty("BROWSER"));
             this.driver = new RemoteWebDriver(new URL(completeUrl), dc); */
 
-            //System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
-            //this.driver = new ChromeDriver();
+            System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
+            this.driver = new ChromeDriver();
         }
 
     @After
-    public void closeDriver(Scenario scenario) {
-        System.out.println("-------------------------------- " + driver.getTitle());
-        if(scenario.isFailed() && driver.getTitle() == null) {
-            Allure.addAttachment("Screenshot of falling step", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+    public void tearDown(Scenario scenario) {
+        if(scenario.getSourceTagNames().contains("@api")) {
             return;
         }
-        this.driver.quit();
+        if(scenario.isFailed()) {
+            Allure.addAttachment("Screenshot of falling step", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+            this.driver.quit();
+        }
+
     }
 }
 
