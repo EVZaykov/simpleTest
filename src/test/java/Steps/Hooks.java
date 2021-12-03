@@ -11,11 +11,17 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.ByteArrayInputStream;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+
+import static com.codeborne.selenide.Selenide.open;
 
 public class Hooks {
 
@@ -49,8 +55,8 @@ public class Hooks {
         //System.out.println(scenario.getSourceTagNames());
         //scenario.getSourceTagNames();
         //RestAssured.filters(new AllureRestAssured());
-        //open("https://grinfer.com/");
-          /*  String host = "localhost";
+        open("https://grinfer.com/");
+            String host = "localhost";
             DesiredCapabilities dc;
 
             if(System.getProperty("BROWSER") != null &&
@@ -70,10 +76,10 @@ public class Hooks {
             String completeUrl = "http://" + host + ":4444/wd/hub";
             //open(completeUrl,dc);
             Allure.step(System.getProperty("BROWSER"));
-            this.driver = new RemoteWebDriver(new URL(completeUrl), dc); */
+            this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
 
-            System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
-            this.driver = new ChromeDriver();
+            //System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
+            //this.driver = new ChromeDriver();
         }
 
     @After

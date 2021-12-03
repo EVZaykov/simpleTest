@@ -30,7 +30,7 @@ public class RepositoryServiceImpl extends APIBaseSteps {
 
     private final RequestSpecification REQ_SPEC =
             new RequestSpecBuilder().setBaseUri(testConfig.getURL())
-                    .addHeader("Authorization","Bearer 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")  // + System.getenv("SECRET_TOKEN")
+                    .addHeader("Authorization","Bearer " + System.getenv("SECRET_TOKEN"))  //
                     .addHeader("accept","application/vnd.github.v3+json")
                     .setContentType("application/json;charset=UTF-8")
                     .build();
