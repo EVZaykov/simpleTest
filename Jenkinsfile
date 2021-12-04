@@ -26,7 +26,7 @@ pipeline{
                 results: [[path: 'target/allure-results']]
               ])
             }
-            emailext (to: 'evzaykov@bk.ru', replyTo: 'evzaykov@bk.ru', subject: "Email Report from - '${env.JOB_NAME}' ", body: readFile("target/surefire-reports/emailable-report.html"), mimeType: 'text/html');
+            emailext (to: 'evzaykov@bk.ru', replyTo: 'evzaykov@bk.ru', subject: "Email Report from - '${env.JOB_NAME}' ", body: readFile("/jenkins/workspace/Runner/allure-report.html"), mimeType: 'text/html');
 			bat 'docker-compose down'
 		}
 	}
