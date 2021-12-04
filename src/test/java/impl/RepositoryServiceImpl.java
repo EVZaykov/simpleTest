@@ -62,15 +62,6 @@ public class RepositoryServiceImpl extends APIBaseSteps {
                 .spec(REQ_SPEC)
                 .basePath(basePath)
                 .delete().then();
-
-
-
-
-                //.log().all()
-                //.header("Content-Type","application/json")
-                //.delete(URL).then()
-                //.log().all();
-
         return validatableResponse;
     }
 

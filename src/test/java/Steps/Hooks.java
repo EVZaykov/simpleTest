@@ -52,9 +52,6 @@ public class Hooks {
             return;
         }
 
-        //System.out.println(scenario.getSourceTagNames());
-        //scenario.getSourceTagNames();
-        //RestAssured.filters(new AllureRestAssured());
         open("https://grinfer.com/");
             String host = "localhost";
             DesiredCapabilities dc;
