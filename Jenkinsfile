@@ -14,6 +14,14 @@ pipeline{
 				bat 'mvn clean test -DBROWSER=firefox -Dcucumber.options="--tags @login"'
 			}
 		}
+		stage('Generate HTML report') {
+            		steps {
+                		cucumber buildStatus: "UNSTABLE",
+                        	fileIncludePattern: '**/cucumber.json',
+                        	jsonReportDirectory: 'target'
+            }
+
+        }
 	}
 	post{
 		always{
