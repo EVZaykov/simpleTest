@@ -27,7 +27,7 @@ pipeline{
                 results: [[path: 'target/allure-results']]
               ])
             }
-            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+            emailext (to: 'magrand073@gmail.com', replyTo: 'magrand073@gmail.com', subject: "Email Report from - '${env.JOB_NAME}' ", body: "dasd", mimeType: 'text/html');
 			bat 'docker-compose down'
 		}
 	}
