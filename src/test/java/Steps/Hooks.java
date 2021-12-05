@@ -33,8 +33,8 @@ public class Hooks {
             String host = "localhost";
             DesiredCapabilities dc;
 
-            if(System.getProperty("BROWSER") != null &&
-                    System.getProperty("BROWSER").equalsIgnoreCase("Firefox")){
+            if(System.getenv("BROWSER") != null &&
+                    System.getenv("BROWSER").equalsIgnoreCase("Firefox")){
                 dc = DesiredCapabilities.firefox();
             }else{
                 ChromeOptions options = new ChromeOptions();
@@ -49,7 +49,7 @@ public class Hooks {
 
             String completeUrl = "http://" + host + ":4444/wd/hub";
             //open(completeUrl,dc);
-            Allure.step(System.getProperty("BROWSER"));
+            Allure.step(System.getenv("BROWSER"));
             //this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
             this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
 
