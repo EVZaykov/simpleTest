@@ -16,14 +16,19 @@ public class AddEnv {
             FileOutputStream fos = new FileOutputStream(path + "/environment.properties");
             String s = System.getProperty("BROWSER");
             String s1 = System.getenv("BUILD_URL");
-            props.setProperty("BUILD_URL", "dasdsad");
-            props.store(fos, "See https://github.com/allure-framework/allure-app/wiki/Environment");
+            //props.setProperty("BUILD_URL", "dasdsad");
+
+            props.setProperty("BUILD_URL", "http://localhost:8080/job/Runner/");
+            props.setProperty("GIT_URL", "https://github.com/EVZaykov/simpleTest");
+            props.setProperty("BROWSER", "Chrome");
+
+
             props.setProperty("BUILD_URL", s1);
             props.setProperty("GIT_URL", System.getenv("GIT_URL"));
             props.setProperty("JOB_BASE_NAME", System.getenv("JOB_BASE_NAME"));
             props.setProperty("NODE_NAME", System.getenv("NODE_NAME"));
             props.setProperty("OS", System.getenv("OS"));
-            props.setProperty("BROWSER", s);
+
 
             fos.close();
 
