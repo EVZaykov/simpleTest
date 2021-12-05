@@ -12,7 +12,6 @@ pipeline{
 		stage('Run Test'){
 			steps{
 				bat 'mvn clean test -DBROWSER=firefox -Dcucumber.options="--tags @login"'
-				bat
 			}
 		}
 	}
