@@ -20,9 +20,7 @@ import static helpers.AddEnv.addEnvVar;
 
 public class Hooks {
 
-
     private static WebDriver driver;
-
 
     @Before
     public void openBrowser(Scenario scenario) throws MalformedURLException {
@@ -53,7 +51,7 @@ public class Hooks {
             //open(completeUrl,dc);
             Allure.step(System.getProperty("BROWSER"));
             //this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
-        this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+            this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
 
             //System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
             //this.driver = new ChromeDriver();

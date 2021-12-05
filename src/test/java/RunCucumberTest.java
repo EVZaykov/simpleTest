@@ -3,7 +3,6 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
-import java.io.File;
 import java.io.IOException;
 
 import static helpers.AddEnv.addEnvVar;
@@ -17,5 +16,4 @@ public class RunCucumberTest {
     public static void writeExtentReport() throws IOException {
         addEnvVar();
     }
-
 }
