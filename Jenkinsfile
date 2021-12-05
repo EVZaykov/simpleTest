@@ -14,14 +14,6 @@ pipeline{
 				bat 'mvn clean test -DBROWSER=firefox -Dcucumber.options="--tags @login"'
 			}
 		}
-		stage('Generate HTML report') {
-            		steps {
-                		cucumber buildStatus: "UNSTABLE",
-                        	fileIncludePattern: '**/cucumber.json',
-                        	jsonReportDirectory: 'target'
-            }
-
-        }
 	}
 	post{
 		always{
@@ -34,7 +26,7 @@ pipeline{
                 results: [[path: 'target/allure-results']]
               ])
             }
-           emailext (to: 'magrand073@gmail.com', replyTo: 'magrand073@gmail.com', subject: "Email Report from - '${env.JOB_NAME}' ", body: "dasd", mimeType: 'text/html');
+           emailext (to: 'magrand073@gmail.com', replyTo: 'magrand073@gmail.com', subject: "Email Report from - '${env.JOB_NAME}' ", body: "http://localhost:8080/job/Runner/${env.BUILD_NUMBER}/allure/", mimeType: 'text/html');
 			bat 'docker-compose down'
 		}
 	}
