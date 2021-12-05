@@ -1,16 +1,12 @@
 package Steps;
 
-import Steps.UISteps.Fofo;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.Given;
 import io.qameta.allure.Allure;
-import io.qameta.allure.Step;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -18,41 +14,24 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.io.ByteArrayInputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
 
 import static com.codeborne.selenide.Selenide.open;
+import static helpers.AddEnv.addEnvVar;
 
 public class Hooks {
 
-    private Fofo fofo;
-    private WebDriver driver;
 
-    @Step
-    @Given("User opens browser {string}")
-    public void user_opens_browser(String string) {
-        fofo = new Fofo(driver);
-        fofo.goTo(string);
-
-    }
-
-    @Step
-    @Given("User enter credential {string} {string}")
-    public void user_enter_credential(String login, String password){
-
-        fofo.enterUserCredentials(login,password);
-
-    }
+    private static WebDriver driver;
 
 
     @Before
-    public void setUp(Scenario scenario) throws MalformedURLException {
+    public void openBrowser(Scenario scenario) throws MalformedURLException {
 
         if(scenario.getSourceTagNames().contains("@api")) {
             return;
         }
 
-        open("https://grinfer.com/");
+        //open("https://grinfer.com/");
             String host = "localhost";
             DesiredCapabilities dc;
 
@@ -73,14 +52,17 @@ public class Hooks {
             String completeUrl = "http://" + host + ":4444/wd/hub";
             //open(completeUrl,dc);
             Allure.step(System.getProperty("BROWSER"));
-            this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+            //this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+        this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
 
             //System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
             //this.driver = new ChromeDriver();
         }
 
     @After
-    public void tearDown(Scenario scenario) {
+    public void closeDriver(Scenario scenario) {
+
+        //addEnvVar();
         if(scenario.getSourceTagNames().contains("@api")) {
             return;
         }

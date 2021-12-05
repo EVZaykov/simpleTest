@@ -23,6 +23,7 @@ public class RepositoryMyStepdefs extends APIBaseSteps {
 
     @Given("User creates repository with name {string} and saves response to var {string}")
     public void create_repository_and_save_response_to_var(String nameOfRepositiry, String varName) {
+        System.out.println("fdsfsd");
         ValidatableResponse rp = repositoryService.createRepository(nameOfRepositiry);
         RUN_CONTEXT.put(varName,rp);
     }
