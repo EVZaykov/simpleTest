@@ -26,7 +26,8 @@ pipeline{
                 results: [[path: 'target/allure-results']]
               ])
             }
-            emailext (to: 'magrand073@gmail.com', replyTo: 'magrand073@gmail.com', subject: "Email Report from - '${env.JOB_NAME}' ", body: "dasd", mimeType: 'text/html');
+			var emailBody = '${SCRIPT, template="regressionfailed.groovy"}'
+            emailext (to: 'magrand073@gmail.com', replyTo: 'magrand073@gmail.com', subject: "[Jenkins] Test Execution Summary' ", body: ${SCRIPT, template="allure-report.groovy"}, mimeType: 'text/html');
 			bat 'docker-compose down'
 		}
 	}
