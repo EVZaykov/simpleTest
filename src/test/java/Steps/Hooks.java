@@ -34,7 +34,7 @@ public class Hooks {
             DesiredCapabilities dc;
 
             if(System.getProperty("BROWSER") != null &&
-                    System.getProperty("BROWSER").equalsIgnoreCase("firefox")){
+                    System.getProperty("BROWSER").equalsIgnoreCase("Firefox")){
                 dc = DesiredCapabilities.firefox();
             }else{
                 ChromeOptions options = new ChromeOptions();
