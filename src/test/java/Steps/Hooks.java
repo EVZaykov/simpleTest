@@ -1,5 +1,6 @@
 package Steps;
 
+import helpers.DriverFactory;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -17,36 +18,37 @@ import java.net.URL;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class Hooks {
+public class Hooks extends DriverFactory {
 
     public static WebDriver driver;
 
     @Before
     public void openBrowser(Scenario scenario) throws MalformedURLException {
-        if(scenario.getSourceTagNames().contains("@api")) {
-            return;
-        }
+        //if(scenario.getSourceTagNames().contains("@api")) {
+           // return;
+        //}
         //open("https://grinfer.com/");
-            String host = "localhost";
-            DesiredCapabilities dc;
+            //String host = "localhost";
+            //DesiredCapabilities dc;
 
-            if(System.getenv("BROWSER") != null &&
-                    System.getenv("BROWSER").equalsIgnoreCase("Firefox")){
-                dc = DesiredCapabilities.firefox();
-            }else{
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                dc = DesiredCapabilities.chrome().merge(options);
-            }
+            //if(System.getenv("BROWSER") != null &&
+            //        System.getenv("BROWSER").equalsIgnoreCase("Firefox")){
+            //    dc = DesiredCapabilities.firefox();
+            //}else{
+              //  ChromeOptions options = new ChromeOptions();
+              //  options.addArguments("--no-sandbox");
+             //   options.addArguments("--disable-dev-shm-usage");
+             //   dc = DesiredCapabilities.chrome().merge(options);
+            //}
 
-            if(System.getProperty("HUB_HOST") != null){
-                host = System.getProperty("HUB_HOST");
-            }
-            String completeUrl = "http://" + host + ":4444/wd/hub";
-            this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+            //if(System.getProperty("HUB_HOST") != null){
+             //   host = System.getProperty("HUB_HOST");
+            //}
+            //String completeUrl = "http://" + host + ":4444/wd/hub";
+            //this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
             //System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
             //this.driver = new ChromeDriver();
+        driver = getDriver();
 
         }
 
