@@ -10,10 +10,11 @@ import static helpers.AddEnv.addEnvVar;
 @RunWith(Cucumber.class)
 @CucumberOptions(glue = {"Steps"},
         plugin = { "pretty", "html:target/cucumber-html-reports", "io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm",
-        "json:target/cucumber-html-reports/cucumber.json","json:target/cucumber.json"}, features = "src/test/resources", tags = "@helloWorld12")
+        "json:target/cucumber-html-reports/cucumber.json","json:target/cucumber.json"}, features = "src/test/resources/", tags = "@hello")
 public class RunCucumberTest {
     @AfterClass
     public static void writeExtentReport() throws IOException {
         addEnvVar();
     }
+
 }

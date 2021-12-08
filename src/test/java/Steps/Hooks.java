@@ -15,13 +15,14 @@ import java.io.ByteArrayInputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class Hooks {
 
     public static WebDriver driver;
 
     @Before
     public void openBrowser(Scenario scenario) throws MalformedURLException {
-
         if(scenario.getSourceTagNames().contains("@api")) {
             return;
         }
@@ -42,16 +43,16 @@ public class Hooks {
             if(System.getProperty("HUB_HOST") != null){
                 host = System.getProperty("HUB_HOST");
             }
-            String completeUrl = "http://" + host + ":4444/wd/hub";
-            this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
-            //System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
+            //String completeUrl = "http://" + host + ":4444/wd/hub";
+            //this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+            System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
             //this.driver = new ChromeDriver();
 
         }
 
     @After
     public void closeDriver(Scenario scenario) {
-
+        //Allure.addAttachment("Screenshot of falling step", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
         if(scenario.getSourceTagNames().contains("@api")) {
             return;
         }

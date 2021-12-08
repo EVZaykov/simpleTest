@@ -1,5 +1,5 @@
 Feature: Create repository from API
-@login @api
+@login @api @hello @all
   Scenario: Creating repository with existed name
   * User creates repository with name "lucky-day" and saves response to var "responseAfterCreating"
   * User gets response "responseAfterCreating" and checks status code ER "422"
