@@ -43,9 +43,9 @@ public class Hooks {
             if(System.getProperty("HUB_HOST") != null){
                 host = System.getProperty("HUB_HOST");
             }
-            //String completeUrl = "http://" + host + ":4444/wd/hub";
-            //this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
-            System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
+            String completeUrl = "http://" + host + ":4444/wd/hub";
+            this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+            //System.setProperty("webdriver.chrome.driver", "C:\\projects\\DemoCucumber-master\\src\\test\\java\\resources\\other\\chromedriver.exe");
             //this.driver = new ChromeDriver();
 
         }
