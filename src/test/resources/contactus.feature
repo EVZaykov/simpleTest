@@ -1,5 +1,5 @@
 Feature: Login User
-
+@test
 	Scenario: Positive Login
 		Given I navigate to github.com
 		And I enter a "EVZaykov" Username
