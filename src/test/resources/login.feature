@@ -1,4 +1,4 @@
 Feature: Login User
-  @hello @hello @all
+  @hello @qwert
   Scenario: Login user
-    * User opens browser "https://cucumber.io/docs/guides/parallel-execution/"
+    * User opens browser

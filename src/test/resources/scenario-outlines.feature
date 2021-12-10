@@ -1,5 +1,5 @@
 Feature: Scenario Outlines feature file
-  @hello1 @hello @all
+  @hello @all
   Scenario Outline: <scen_out_row_num>
     Given Step from '<scen_out_row_num>' in 'scenario-outlines' feature file
 

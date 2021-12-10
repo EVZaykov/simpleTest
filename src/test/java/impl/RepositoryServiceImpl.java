@@ -2,6 +2,7 @@ package impl;
 
 import Steps.APISteps.APIBaseSteps;
 import config.TestConfig;
+import groovy.util.logging.Slf4j;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
@@ -20,7 +21,7 @@ import static helpers.CheckVariable.check_variable_in_string;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 
-@Log4j2
+@Slf4j
 public class RepositoryServiceImpl extends APIBaseSteps {
 
 
@@ -80,7 +81,7 @@ public class RepositoryServiceImpl extends APIBaseSteps {
         try {
             repositories = validatableResponse.extract().jsonPath().getList(".", Repository.class);
         } catch (Exception e) {
-            log.error("Repositories request exception: " + Arrays.toString(e.getStackTrace()));
+            //log.error("Repositories request exception: " + Arrays.toString(e.getStackTrace()));
         }
         return repositories;
 

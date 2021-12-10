@@ -1,4 +1,4 @@
 Feature: Login User2
-  @hello @all
+  @hello1 @all
   Scenario: Login user2
     * User opens browser "https://github.com/login"
