@@ -7,7 +7,6 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import lombok.extern.log4j.Log4j2;
 
 import static io.restassured.RestAssured.given;
 

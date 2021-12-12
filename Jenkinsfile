@@ -6,12 +6,12 @@ pipeline{
 	stages {
 		stage('Start Grid'){
 			steps {
-				bat 'docker-compose up -d hub chrome firefox'
+				bat 'docker-compose up -d selenium-hub && docker-compose scale firefox=3'
 			}
 		}
 		stage('Run Test'){
 			steps{
-				bat 'mvn clean test -DBROWSER=firefox -Dcucumber.options="--tags @test"'
+				bat 'mvn clean test "-Dwebdriver.browser.name=firefox" "-Dcucumber.options=--tags @qwert12"'
 			}
 		}
 	}

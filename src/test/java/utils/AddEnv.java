@@ -1,10 +1,6 @@
-package helpers;
+package utils;
 
-import java.io.File;
 import java.io.FileOutputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.Properties;
 
 public class AddEnv {

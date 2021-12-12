@@ -1,4 +1,4 @@
-package helpers;
+package utils;
 
 public class UserConfig {
     public static final String USER_LOGIN = "test@test.com";

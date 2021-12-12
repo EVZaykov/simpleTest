@@ -11,9 +11,9 @@ import io.restassured.response.ValidatableResponse;
 import pojos.gitHub.Repository;
 import java.util.List;
 
-import static helpers.RunContext.RUN_CONTEXT;
-import static helpers.AssertionsWithMessage.assertWithMessage;
-import static helpers.CheckVariable.check_variable_in_string;
+import static utils.RunContext.RUN_CONTEXT;
+import static utils.AssertionsWithMessage.assertWithMessage;
+import static utils.CheckVariable.check_variable_in_string;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class RepositoryMyStepdefs extends APIBaseSteps {

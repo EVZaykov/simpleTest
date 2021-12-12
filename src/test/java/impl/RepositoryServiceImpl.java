@@ -5,25 +5,19 @@ import config.TestConfig;
 import groovy.util.logging.Slf4j;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import lombok.extern.log4j.Log4j2;
-import org.junit.runner.Request;
 import pojos.gitHub.CreateRepository;
 import pojos.gitHub.Repository;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static helpers.RunContext.RUN_CONTEXT;
-import static helpers.CheckVariable.check_variable_in_string;
+import static utils.RunContext.RUN_CONTEXT;
+import static utils.CheckVariable.check_variable_in_string;
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
 
 @Slf4j
 public class RepositoryServiceImpl extends APIBaseSteps {
-
 
     TestConfig testConfig = new TestConfig();
     private static final String OWNER_REPOSITORY = "EVZaykov/";
@@ -53,7 +47,6 @@ public class RepositoryServiceImpl extends APIBaseSteps {
         return rp;
     }
 
-
     public ValidatableResponse deleteRepository(String nameOfRepos,String varName) {
 
         String basePath = "repos/" + testConfig.getOwnerOfRepository() + check_variable_in_string(nameOfRepos);
@@ -65,8 +58,6 @@ public class RepositoryServiceImpl extends APIBaseSteps {
                 .delete().then();
         return validatableResponse;
     }
-
-
 
     public List<Repository> getRepositories(String url, String varName) {
         String URL = testConfig.getURL() + url;
@@ -84,7 +75,5 @@ public class RepositoryServiceImpl extends APIBaseSteps {
             //log.error("Repositories request exception: " + Arrays.toString(e.getStackTrace()));
         }
         return repositories;
-
     }
-
 }
