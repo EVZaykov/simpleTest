@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('stage 1') {
             steps {
-                echo '${env.BROWSER}'
+                echo '${env.BUILD_DISPLAY_NAME}'
                 bat 'env | sort'
             }
         }
