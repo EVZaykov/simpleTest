@@ -6,7 +6,7 @@ pipeline{
 	stages {
 		stage('Start Grid'){
 			steps {
-				bat 'Bocker-compose up -d selenium-hub && docker-compose scale ${env.BROWSER}=3'
+				bat 'docker-compose up -d selenium-hub && docker-compose scale ${env.BROWSER}=3'
 			}
 		}
 		stage('Run Test'){
