@@ -12,7 +12,7 @@ pipeline{
 		}
 		stage('Run Test'){
 			steps{
-				bat 'mvn clean test "-Dwebdriver.browser.name='${BROWSER}'"-Dcucumber.options=--tags @qwert12"'
+				bat 'mvn clean test "-Dwebdriver.browser.name='"${BROWSER}"'"-Dcucumber.options=--tags @qwert12"'
 			}
 		}
 	}
