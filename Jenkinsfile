@@ -6,6 +6,7 @@ pipeline{
 	stages {
 		stage('Start Grid'){
 			steps {
+				print "DEBUG: parameter foo = ${BROWSER}"
 				bat 'docker-compose up -d selenium-hub && docker-compose scale ${env.BROWSER}=3'
 			}
 		}
