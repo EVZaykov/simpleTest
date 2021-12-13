@@ -2,6 +2,7 @@ pipeline{
 	agent any
     environment {
         SECRET_TOKEN = credentials('secret-token')
+	DB_ENGINE    = "-Dwebdriver.browser.name=${BROWSER}"
     }
 	stages {
 		stage('Start Grid'){
@@ -12,7 +13,7 @@ pipeline{
 		}
 		stage('Run Test'){
 			steps{
-				bat 'mvn clean test "-Dwebdriver.browser.name='"${BROWSER}"' -Dcucumber.options=--tags @qwert12"'
+				bat 'mvn clean test \"${DB_ENGINE}\" -Dcucumber.options=--tags @qwert12"'
 			}
 		}
 	}
