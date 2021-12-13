@@ -28,7 +28,7 @@ pipeline{
                 results: [[path: 'target/allure-results']]
               ])
             }
-			emailext (to:  "${Email}", replyTo: "", subject: "Email Report from - '${env.JOB_NAME}' ", body: "${env.BROWSER} <br> http://localhost:8080/job/Runner/${env.BUILD_NUMBER}/allure/ <br> http://localhost:8080/job/Runner/${env.BUILD_NUMBER}/", mimeType: 'text/html');
+			emailext (to:  "${Email}", replyTo: "", subject: "Email Report from - '${env.JOB_NAME}' ", body: "${env.BROWSER} <br> http://localhost:8080/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/allure/ <br> http://localhost:8080/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/", mimeType: 'text/html');
 			bat 'docker-compose down'
 		}
 	}
