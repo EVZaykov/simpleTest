@@ -2,6 +2,7 @@ pipeline{
 	agent any
     environment {
         SECRET_TOKEN = credentials('secret-token')
+	BOBO = "--tags @qwert12"
     }
 	stages {
 		stage('Start Grid'){
@@ -13,7 +14,7 @@ pipeline{
 		stage('Run Test'){
 			steps{
 
-				bat 'mvn clean test -Dwebdriver.browser.name=\${BROWSER}-Dcucumber.options="--tags @qwert12"'
+				bat "mvn clean test -Dwebdriver.browser.name=${BROWSER} -Dcucumber.options=${BOBO}"
 			}
 		}
 	}
