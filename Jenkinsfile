@@ -2,7 +2,7 @@ pipeline{
 	agent any
     environment {
         SECRET_TOKEN = credentials('secret-token')
-	BOBO = '"--tags @qwert12"'
+	    BOBO = '"--tags ${TAGS}"'
     }
 	stages {
 		stage('Start Grid'){
