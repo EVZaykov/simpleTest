@@ -13,7 +13,7 @@ Feature: Create repository from REST request and delete
   * User deletes repository with name "FDDSA" and saves response to var "responseAfterDeleting"
   * User deletes repository with name "HelloAmsterdam1 " and saves response to var "responseAfterDeleting"
   * User deletes repository with name "HelloNetherlands" and saves response to var "responseAfterDeleting"
-  * User gets response "responseAfterDeleting" and checks status code ER "204"
+
   #* User gets value from JsonPath "name" from response "responseAfterDeleting" and saves to var "nameOfRepos"
 
 

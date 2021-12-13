@@ -1,6 +1,6 @@
 Feature: asdas
 
-  @qwert12
+  @all
   Scenario: dasdsa
     * user is on the page "Login page"
     * user fills the field "Username field" with value "EVZaykov"
@@ -9,9 +9,9 @@ Feature: asdas
     * user is on the page "Main page"
     * user checks that the text "All activity" is visible
     * user clicks the button "Create new repository"
-    * user clicks the button "SignIn button"
 
-  @qwert12
+
+  @all
   Scenario: dddsa
     * user is on the page "Login page"
     * user fills the field "Username field" with value "EVZaykov"
@@ -20,7 +20,7 @@ Feature: asdas
     * user is on the page "Main page"
     * user checks that the text "All activity" is visible
     * user clicks the button "Create new repository"
-    * user clicks the button "SignIn button"
+
 
 
   @qwert1
