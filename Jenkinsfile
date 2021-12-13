@@ -13,7 +13,7 @@ pipeline{
 		}
 		stage('Run Test'){
 			steps{
-				bat "mvn clean test -Dwebdriver.browser.name=${BROWSER} -Dcucumber.filter.tags=\"${BOBO}\""
+				bat "mvn clean test -Dwebdriver.browser.name=${BROWSER} -Dcucumber.filter.tags=\"${TAGS}\""
 			}
 		}
 	}
