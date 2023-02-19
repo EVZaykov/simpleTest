@@ -1,6 +1,6 @@
 Feature: Login UI
 
-  @all
+  @show
   Scenario: Successful login
     * user is on the page "Login page"
     * user fills the field "Username field" with value "EVZaykov"
@@ -11,7 +11,7 @@ Feature: Login UI
     * user clicks the button "Create new repository"
 
 
-  @all
+  @show
   Scenario: Not successful login
     * user is on the page "Login page"
     * user fills the field "Username field" with value "dsADA"
@@ -19,7 +19,7 @@ Feature: Login UI
     * user clicks the button "SignIn button"
     * user checks that the field "Password field" is empty
 
-  @all
+  @show
   Scenario: Fail for example
     * user is on the page "Login page"
     * user fills the field "Username field" with value "dsADA"
