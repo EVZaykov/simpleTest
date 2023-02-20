@@ -1,6 +1,7 @@
 Feature: Login UI
 
   @show
+  @all
   Scenario: Successful login
     * user is on the page "Login page"
     * user fills the field "Username field" with value "EVZaykov"
@@ -13,6 +14,7 @@ Feature: Login UI
 
 
   @show
+  @all
   Scenario: Not successful login
     * user is on the page "Login page"
     * user fills the field "Username field" with value "dsADA"
@@ -21,6 +23,7 @@ Feature: Login UI
     * user checks that the field "Password field" is empty
 
   @show
+  @all
   Scenario: Fail for example
     * user is on the page "Login page"
     * user fills the field "Username field" with value "dsADA"
