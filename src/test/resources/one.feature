@@ -1,6 +1,6 @@
 Feature: Login UI
 
-  @show @all
+  @ui @all
   Scenario: long for demonstration
     * user is on the page "Login page"
     * user fills the field "Username field" with value "EVZaykov"

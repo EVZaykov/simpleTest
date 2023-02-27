@@ -1,7 +1,6 @@
 Feature: Login UI
 
-  @show
-  @all
+  @ui @all
   Scenario: Not successful login
     * user is on the page "Login page"
     * user fills the field "Username field" with value "dsADA"

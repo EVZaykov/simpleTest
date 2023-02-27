@@ -1,7 +1,6 @@
 Feature: Login User
 
-  @all
-  Scenario: Positive Login232321
+  Scenario: Login with wrong credential
     * user is on the page "Login page"
     * user fills the field "Username field" with value "dsADA"
     * user fills the field "Password field" with value "dsADA"

@@ -1,5 +1,5 @@
 Feature: Create repository from REST request and delete
-@del @api @hello @all
+@del @api @all
   Scenario: name of repository with normal name
   * User deletes repository with name "-TestName-" and saves response to var "responseAfterDeleting"
   * User deletes repository with name "ValidName " and saves response to var "responseAfterDeleting"
@@ -14,7 +14,6 @@ Feature: Create repository from REST request and delete
   * User deletes repository with name "HelloAmsterdam1 " and saves response to var "responseAfterDeleting"
   * User deletes repository with name "HelloNetherlands" and saves response to var "responseAfterDeleting"
 
-  #* User gets value from JsonPath "name" from response "responseAfterDeleting" and saves to var "nameOfRepos"
 
 
 

@@ -1,5 +1,5 @@
 Feature: Create repository from API
-@login @api @hello @all
+@login @api @all
   Scenario: Creating repository with valid name
   * User creates repository with name "ValidName" and saves response to var "responseAfterCreating"
   * User gets response "responseAfterCreating" and checks status code ER "201"
